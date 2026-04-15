@@ -30,8 +30,8 @@ const ig20 = {
 };
 
 const ig16 = {
-  name: "INTERGROWTH 2016",
-  short: "IG-2016",
+  name: "INTERGROWTH 2017",
+  short: "IG-2017",
   color: "#27ae60",
   weeks: [22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40],
   p3:  [463,516,575,641,716,800,892,994,1106,1227,1357,1495,1641,1792,1948,2106,2265,2422,2574],
@@ -233,8 +233,8 @@ function CompTable({ sources, percKey, weekRange }) {
 
 const GROUPS = [
   { id: "all", label: "Все 3 норматива", sources: [hadlock, ig16, ig20] },
-  { id: "ig", label: "IG-2016 vs IG-2020", sources: [ig16, ig20] },
-  { id: "h16", label: "Hadlock vs IG-2016", sources: [hadlock, ig16] },
+  { id: "ig", label: "IG-2017 vs IG-2020", sources: [ig16, ig20] },
+  { id: "h16", label: "Hadlock vs IG-2017", sources: [hadlock, ig16] },
   { id: "h20", label: "Hadlock vs IG-2020", sources: [hadlock, ig20] },
 ];
 
@@ -254,7 +254,7 @@ export default function App() {
 
       <header style={css.header}>
         <h1 style={css.h1}>Сравнение нормативов ПМП</h1>
-        <p style={css.subtitle}>Hadlock 1991 · INTERGROWTH-21ˢᵗ 2016 · INTERGROWTH-21ˢᵗ 2020</p>
+        <p style={css.subtitle}>Hadlock 1991 · INTERGROWTH-21ˢᵗ 2017 · INTERGROWTH-21ˢᵗ 2020</p>
       </header>
 
       {/* Group tabs */}
@@ -316,7 +316,7 @@ export default function App() {
                 <tr>
                   <th style={{ ...css.th, ...css.thFirst }}>Нед.</th>
                   <th style={{ ...css.th, color: hadlock.color }}>Hadlock</th>
-                  <th style={{ ...css.th, color: ig16.color }}>IG-2016</th>
+                  <th style={{ ...css.th, color: ig16.color }}>IG-2017</th>
                   <th style={{ ...css.th, color: ig20.color }}>IG-2020</th>
                   <th style={{ ...css.th, color: "#f39c12" }}>Макс Δ (г)</th>
                   <th style={{ ...css.th, color: "#f39c12" }}>Макс Δ (%)</th>
@@ -385,7 +385,7 @@ export default function App() {
       })()}
 
       <div style={{ textAlign: "center", color: palette.textMuted, fontSize: 11, marginTop: 20, paddingBottom: 20 }}>
-        Данные: Hadlock et al. 1991 · INTERGROWTH-21ˢᵗ (Stirnemann 2016) · INTERGROWTH-21ˢᵗ (Stirnemann 2020)
+        Данные: Hadlock et al. 1991 · INTERGROWTH-21ˢᵗ (Stirnemann et al. 2017) · INTERGROWTH-21ˢᵗ (Stirnemann et al. 2020)
       </div>
     </div>
   );
