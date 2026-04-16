@@ -10,7 +10,7 @@ const hadlock = {
   p10: [29,37,48,61,77,97,121,150,185,227,275,331,398,471,556,652,758,876,1004,1145,1294,1453,1621,1794,1973,2154,2335,2513,2686,2851,3004],
   p50: [35,45,58,73,93,117,146,181,223,273,331,399,478,568,670,785,913,1055,1210,1379,1559,1751,1953,2162,2377,2595,2813,3028,3236,3435,3619],
   p90: [41,53,68,85,109,137,171,212,261,319,387,467,559,665,784,918,1068,1234,1416,1613,1824,2049,2285,2530,2781,3036,3291,3543,3786,4019,4234],
-  p97: [44,56,73,91,116,146,183,226,279,341,414,499,598,710,838,981,1141,1319,1513,1724,1649,2189,2441,2703,2971,3244,3516,3785,4045,4294,4524],
+  p97: [44,56,73,91,116,146,183,226,279,341,414,499,598,710,838,981,1141,1319,1513,1724,1949,2189,2441,2703,2971,3244,3516,3785,4045,4294,4524],
 };
 
 const ig20 = {
@@ -28,8 +28,8 @@ const ig20 = {
 };
 
 const ig16 = {
-  name: "INTERGROWTH 2016",
-  short: "IG-2016",
+  name: "INTERGROWTH 2017",
+  short: "IG-2017",
   color: "#27ae60",
   weeks: [22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40],
   p3:  [463,516,575,641,716,800,892,994,1106,1227,1357,1495,1641,1792,1948,2106,2265,2422,2574],
@@ -308,8 +308,8 @@ function LineStyleIcon({ dash, width, opacity }) {
 
 const GROUPS = [
   { id: "all", label: "Все 3 норматива", sources: [hadlock, ig16, ig20] },
-  { id: "ig", label: "IG-2016 vs IG-2020", sources: [ig16, ig20] },
-  { id: "h16", label: "Hadlock vs IG-2016", sources: [hadlock, ig16] },
+  { id: "ig", label: "IG-2017 vs IG-2020", sources: [ig16, ig20] },
+  { id: "h16", label: "Hadlock vs IG-2017", sources: [hadlock, ig16] },
   { id: "h20", label: "Hadlock vs IG-2020", sources: [hadlock, ig20] },
 ];
 
@@ -326,7 +326,7 @@ export default function App() {
       <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
       <header style={css.header}>
         <h1 style={css.h1}>Сравнение нормативов ПМП</h1>
-        <p style={css.subtitle}>Hadlock 1991 · INTERGROWTH-21st 2016 · INTERGROWTH-21st 2020</p>
+        <p style={css.subtitle}>Hadlock 1991 · INTERGROWTH-21st 2017 · INTERGROWTH-21st 2020</p>
       </header>
 
       <div style={css.tabs}>
@@ -373,7 +373,7 @@ export default function App() {
           </div>
         </div>
         <p style={{ fontSize: 11, color: palette.textMuted, margin: "0 0 12px", textAlign: "center" }}>
-          Цвет линии — норматив, стиль линии — перцентиль. Медиана — сплошная, крайние перцентили — прерывистые.
+          Цвет линии — норматив, стиль линии — перцентиль. Медиана — сплошная, крайние перцентили — пунктирные.
         </p>
         <AllPercentilesChart sources={group.sources} weekRange={weeks} />
       </div>
@@ -397,7 +397,7 @@ export default function App() {
                 <tr>
                   <th style={{ ...css.th, ...css.thFirst }}>Нед.</th>
                   <th style={{ ...css.th, color: hadlock.color }}>Hadlock</th>
-                  <th style={{ ...css.th, color: ig16.color }}>IG-2016</th>
+                  <th style={{ ...css.th, color: ig16.color }}>IG-2017</th>
                   <th style={{ ...css.th, color: ig20.color }}>IG-2020</th>
                   <th style={{ ...css.th, color: "#f39c12" }}>Макс Δ (г)</th>
                   <th style={{ ...css.th, color: "#f39c12" }}>Макс Δ (%)</th>
@@ -462,7 +462,7 @@ export default function App() {
       })()}
 
       <div style={{ textAlign: "center", color: palette.textMuted, fontSize: 11, marginTop: 20, paddingBottom: 20 }}>
-        Данные: Hadlock et al. 1991 · INTERGROWTH-21st (Stirnemann 2016) · INTERGROWTH-21st (Stirnemann 2020)
+        Данные: Hadlock et al. 1991 · INTERGROWTH-21st (Stirnemann 2017) · INTERGROWTH-21st (Stirnemann 2020)
       </div>
     </div>
   );
