@@ -24,7 +24,7 @@ const ig17 = {
 };
 
 const ig20 = {
-  id:"ig20", name:"INTERGROWTH 2020", short:"IG-2020", color:"#2980b9",
+  id:"ig20", name:"INTERGROWTH 2020", short:"IG-2020", color:"#f39c12",
   weeks:[18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41],
   p3: [184,224,271,324,385,453,530,616,710,813,925,1046,1175,1312,1455,1604,1757,1913,2070,2226,2379,2527,2667,2798],
   p10:[193,235,284,341,405,478,559,650,751,862,982,1113,1252,1400,1556,1718,1885,2056,2228,2400,2569,2733,2888,3034],
@@ -66,7 +66,18 @@ const whoM = {
   p97:[115,145,182,226,279,342,415,501,599,711,838,980,1138,1311,1500,1705,1923,2155,2399,2653,2916,3185,3458,3734,4009,4282,4551],
 };
 
-const ALL_SOURCES = [hadlock, ig17, ig20, who, whoF, whoM];
+// FMF (Nicolaides et al.) - EFW only
+const fmf = {
+  id:"fmf", name:"FMF", short:"FMF", color:"#2980b9",
+  weeks:[20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41],
+  p3: [300,358,424,501,588,686,796,918,1052,1197,1353,1518,1691,1868,2048,2226,2398,2561,2709,2839,2945,3025],
+  p10:[314,375,444,525,616,719,835,964,1105,1258,1423,1598,1780,1968,2159,2347,2531,2704,2862,3001,3115,3201],
+  p50:[346,413,491,580,682,797,926,1070,1228,1400,1586,1782,1988,2201,2416,2631,2839,3037,3219,3379,3512,3613],
+  p90:[381,455,542,641,754,883,1027,1188,1365,1558,1767,1988,2221,2461,2705,2948,3186,3412,3620,3804,3959,4078],
+  p97:[399,477,567,671,791,926,1078,1248,1435,1638,1858,2092,2338,2593,2851,3110,3362,3602,3824,4021,4187,4315],
+};
+
+const ALL_SOURCES = [hadlock, ig17, ig20, who, whoF, whoM, fmf];
 
 // ═══════════════════════════ HELPERS ═══════════════════════════
 
@@ -254,7 +265,7 @@ function LineIcon({dash,width,opacity}){
 // ═══════════════════════════ MAIN ═══════════════════════════
 
 export default function App(){
-  const [active,setActive]=useState({hadlock:true,ig17:true,ig20:true,who:false,whoF:false,whoM:false});
+  const [active,setActive]=useState({hadlock:true,ig17:true,ig20:true,who:false,whoF:false,whoM:false,fmf:false});
   const [perc,setPerc]=useState("p50");
 
   const toggle=id=>{
@@ -272,7 +283,7 @@ export default function App(){
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
     <header style={S.header}>
       <h1 style={S.h1}>Сравнение нормативов ПМП</h1>
-      <p style={S.subtitle}>Hadlock 1991 · INTERGROWTH-21st 2017 / 2020 · WHO 2017</p>
+      <p style={S.subtitle}>Hadlock 1991 · IG-21st 2017 / 2020 · WHO 2017 · FMF</p>
     </header>
 
     {/* Source toggles */}
@@ -351,7 +362,7 @@ export default function App(){
     </>)}
 
     <div style={{textAlign:"center",color:P.muted,fontSize:11,marginTop:20,paddingBottom:20}}>
-      Hadlock et al. 1991 · INTERGROWTH-21st (Stirnemann 2017, 2020) · WHO (Kiserud et al. 2017)
+      Hadlock et al. 1991 · INTERGROWTH-21st (Stirnemann 2017, 2020) · WHO (Kiserud et al. 2017) · FMF (Nicolaides et al.)
     </div>
   </div>);
 }
