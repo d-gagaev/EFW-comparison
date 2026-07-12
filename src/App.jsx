@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, BarChart, Bar, ReferenceLine } from "recharts";
+import { Analytics } from '@vercel/analytics/react';
 
 // ═══════════════════════════ DATA ═══════════════════════════
 
@@ -233,7 +234,7 @@ function DiffChart({a,b,perc,weeks,h=280}){
   </BarChart></ResponsiveContainer>);
 }
 
-// ═══════════════════════════ TABLE ═══════════════════════════
+// ══════���═════════════════���══ TABLE ═══════════════════════════
 
 function CompTable({sources,perc,weeks}){
   const pair=sources.length===2;
@@ -364,5 +365,6 @@ export default function App(){
     <div style={{textAlign:"center",color:P.muted,fontSize:11,marginTop:20,paddingBottom:20}}>
       Hadlock et al. 1991 · INTERGROWTH-21st (Stirnemann 2017, 2020) · WHO (Kiserud et al. 2017) · FMF (Nicolaides et al.)
     </div>
+    <Analytics />
   </div>);
 }
